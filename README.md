@@ -16,7 +16,7 @@ Program ini memanfaatkan gabungan struktur data List (sebagai wadah utama) dan T
 
 Alur Program (Flowchart)
 
-<img width="1920" height="1080" alt="Screenshot 2026-09-12 123530" src="https://github.com/user-attachments/assets/08dff837-610c-4e0b-b461-142a59deb938" />
+<img width="801" height="773" alt="Screenshot 2026-09-12 124951" src="https://github.com/user-attachments/assets/cab91f74-f41b-453f-bfbd-b740c7c23355" />
 
 1. Menu Utama & Tampilkan Data
    
