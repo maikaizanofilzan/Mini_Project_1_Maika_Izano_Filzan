@@ -1,0 +1,113 @@
+riwayat_servis = [
+    ("Kawasaki ZX25R - KU 47 HA", "Ganti Oli Mesin", "12000", "12-01-2026"),
+    ("Porsche 911 GT3 - KU 67 HA", "Servis Rem", "45000", "20-02-2026")
+]
+
+while True:
+    print("\n=========================================")
+    print("   JURNAL SERVIS KENDARAAN PRIBADI       ")
+    print("=========================================")
+    print("1. Tampilkan Seluruh Riwayat Servis")
+    print("2. Tambah Catatan Servis Baru")
+    print("3. Ubah Catatan Servis")
+    print("4. Hapus Catatan Servis")
+    print("5. Keluar")
+    print("=========================================")
+    
+    pilihan = input("Pilih menu (1-5): ")
+
+    if pilihan == "1":
+        print("\n--- DAFTAR RIWAYAT SERVIS ---")
+        if riwayat_servis == []:
+            print("Belum ada data servis yang tersimpan.")
+        else:
+            nomor = 1
+            for data in riwayat_servis:
+                print(nomor, ". Kendaraan   :", data[0])
+                print("   Jenis Servis:", data[1])
+                print("   Kilometer   :", data[2], "KM")
+                print("   Tanggal     :", data[3])
+                print("-----------------------------------")
+                nomor = nomor + 1
+
+    elif pilihan == "2":
+        print("\n--- TAMBAH CATATAN SERVIS ---")
+        kendaraan = input("Nama/Plat Kendaraan : ")
+        jenis = input("Jenis Servis         : ")
+        km = input("Kilometer Kendaraan  : ")
+        tanggal = input("Tanggal (DD-MM-YYYY) : ")
+        
+        data_baru = (kendaraan, jenis, km, tanggal)
+        riwayat_servis.append(data_baru)
+        print("\nData servis berhasil ditambahkan!")
+
+    elif pilihan == "3":
+        print("\n--- UBAH CATATAN SERVIS ---")
+        if riwayat_servis == []:
+            print("Tidak ada data untuk diubah.")
+        else:
+            nomor = 1
+            for data in riwayat_servis:
+                print(nomor, ".", data[0], "-", data[1], "(", data[3], ")")
+                nomor = nomor + 1
+            
+            target_nama = input("\nMasukkan Nama/Plat Kendaraan yang mau diubah: ")
+            
+            ditemukan = False
+            list_baru = []
+            
+            for data in riwayat_servis:
+                if data[0] == target_nama:
+                    print("\n--- Masukkan Data Pembaruan ---")
+                    kendaraan_baru = input("Nama/Plat Kendaraan Baru : ")
+                    jenis_baru = input("Jenis Servis Baru         : ")
+                    km_baru = input("Kilometer Baru            : ")
+                    tanggal_baru = input("Tanggal Baru (DD-MM-YYYY) : ")
+                    
+                    data_diubah = (kendaraan_baru, jenis_baru, km_baru, tanggal_baru)
+                    list_baru.append(data_diubah)
+                    ditemukan = True
+                else:
+                    list_baru.append(data)
+            
+            riwayat_servis = list_baru
+            
+            if ditemukan:
+                print("\nData servis berhasil diperbarui!")
+            else:
+                print("\nNama/Plat kendaraan tidak ditemukan.")
+
+    elif pilihan == "4":
+        print("\n--- HAPUS CATATAN SERVIS ---")
+        if riwayat_servis == []:
+            print("Tidak ada data untuk dihapus.")
+        else:
+            nomor = 1
+            for data in riwayat_servis:
+                print(nomor, ".", data[0], "-", data[1], "(", data[3], ")")
+                nomor = nomor + 1
+            
+            target_nama = input("\nMasukkan Nama/Plat Kendaraan yang mau dihapus: ")
+            
+            ditemukan = False
+            list_baru = []
+            
+            for data in riwayat_servis:
+                if data[0] == target_nama:
+                    ditemukan = True
+                else:
+                    list_baru.append(data)
+            
+            riwayat_servis = list_baru
+            
+            if ditemukan:
+                print("\nData servis", target_nama, "berhasil dihapus!")
+            else:
+                print("\nNama/Plat kendaraan tidak ditemukan.")
+
+    elif pilihan == "5":
+        print("\nTerima kasih telah menggunakan sistem Jurnal Servis Kendaraan!")
+        break
+
+    else:
+        print("\nPilihan menu tidak valid! Harap masukkan angka 1 sampai 5.")
